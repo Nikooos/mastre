@@ -1,6 +1,9 @@
 import React from 'react';
 import './app.css';
 
+import Overlay from './components/Overlay/Overlay';
+import OverlayBackground from './components/Overlay/OverlayBackground/OverlayBackground';
+import Header from './components/Header/Header';
 import Keyboard from './components/Keyboard/Keyboard'
 import Row from './components/Row/Row'
 
@@ -11,19 +14,23 @@ const appHeight = () => {
 window.addEventListener('resize', appHeight)
 appHeight()
 
-function App() {
+function showRules() {
+  //alert('show rules')
+}
+
+function showSettings() {
+  alert('show settings')
+}
+
+const App = () => {
   return (
     <div className='App'>
       <div className='Mastre'>
-        <div className='Header'>
-          <div className='Left'>O</div>
-          <div className='Title'>Mastre</div>
-          <div className='Right'>O</div>
-        </div>
+        <Header showRules={() => showRules()} showSettings={() => showSettings()} />
         <div className='Divider'/>
         <div className='Board'>
-          <Row />
-          <Row />
+          <Row isCurrentRow />
+          <Row isCurrentRow={false} />
           <Row />
           <Row />
           <Row />
@@ -36,6 +43,8 @@ function App() {
         <div className='Divider'/>
         <Keyboard />
       </div>
+      {/* <OverlayBackground />
+      <Overlay /> */}
     </div>
   );
 }

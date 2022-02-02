@@ -1,4 +1,4 @@
-.container {
+.Button {
   width: 40px;
   height: 40px;
   border-radius: 10px;
@@ -11,4 +11,11 @@
   cursor: pointer;
   box-shadow: 0;
   color: darkgray;
+}
+
+@media only screen and (max-device-width: 380px) {
+	.Button {
+    width: 30px;
+    height: 30px;
+	}
 }

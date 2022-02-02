@@ -1,0 +1,54 @@
+.Header {
+  background-color: white;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  flex-direction: row;
+  height: 40px;
+}
+
+.Left {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  height: 40px;
+  width: 40px;
+}
+
+.Rules {
+  height: 30px;
+  width: 30px;
+  border-radius: 10px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+}
+
+.Title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.Right {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  height: 40px;
+  width: 40px;
+}
+
+.Settings {
+  height: 30px;
+  width: 30px;
+  border-radius: 10px;
+  border: 1px solid black;
+}

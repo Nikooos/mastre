@@ -1,0 +1,16 @@
+.Peg {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-color: darkgray;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 100%;
+}
+
+@media only screen and (max-device-width: 380px) {
+	.Peg {
+    width: 20px;
+    height: 20px;
+	}
+}

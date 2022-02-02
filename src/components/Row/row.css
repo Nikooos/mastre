@@ -6,40 +6,18 @@
 }
 
 .Decode {
-  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   flex: 3;
-  padding: 10px;
-}
-
-.Peg {
-  background-color: white;
-  width: 40px;
-  height: 40px;
-  border-color: darkgray;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 100%;
+  padding: 5px;
 }
 
 .Hints {
-  background-color: white;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   align-items: center;
   flex: 1;
-}
-
-.Hint {
-  background-color: white;
-  width: 10px;
-  height: 10px;
-  border-color: darkgray;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 100%;
 }
