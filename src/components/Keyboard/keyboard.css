@@ -1,0 +1,8 @@
+.Keyboard {
+  display: flex;
+  background-color: white;
+  margin-top: auto;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px;
+}

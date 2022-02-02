@@ -1,7 +1,8 @@
-.btn {
+.container {
   width: 40px;
   height: 40px;
   border-radius: 10px;
+  border: solid 1px darkgray;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,4 +10,5 @@
   align-self: center;
   cursor: pointer;
   box-shadow: 0;
+  color: darkgray;
 }
