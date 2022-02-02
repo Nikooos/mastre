@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mastre/static/css/main.fee15d09.css",
+    "main.js": "/mastre/static/js/main.911a487b.js",
+    "static/js/787.20b38434.chunk.js": "/mastre/static/js/787.20b38434.chunk.js",
+    "index.html": "/mastre/index.html",
+    "main.fee15d09.css.map": "/mastre/static/css/main.fee15d09.css.map",
+    "main.911a487b.js.map": "/mastre/static/js/main.911a487b.js.map",
+    "787.20b38434.chunk.js.map": "/mastre/static/js/787.20b38434.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fee15d09.css",
+    "static/js/main.911a487b.js"
+  ]
+}
