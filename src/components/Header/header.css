@@ -28,6 +28,7 @@
   justify-content: center;
   text-align: center;
   align-self: center;
+  cursor: pointer;
 }
 
 .Title {
@@ -51,4 +52,5 @@
   width: 30px;
   border-radius: 10px;
   border: 1px solid black;
+  cursor: pointer;
 }

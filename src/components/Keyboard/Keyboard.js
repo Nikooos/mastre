@@ -3,23 +3,23 @@ import './keyboard.css';
 
 import KeyboardButton from './KeyboardButton/KeyboardButton'
 
-function onClickKeyboardButton(type) {
-  alert('onclick ' + type)
-}
+const Keyboard = ({ onButtonSelected }) => {
+  function onHandleClick(type) {
+    onButtonSelected(type);
+  };
 
-const Button = () => {
   return (
     <div className='Keyboard'>
-      <KeyboardButton btnColor='purple' onClick={() => {onClickKeyboardButton('purple')}} />
-      <KeyboardButton btnColor='red' onClick={() => {onClickKeyboardButton('red')}} />
-      <KeyboardButton btnColor='blue' onClick={() => {onClickKeyboardButton('blue')}} />
-      <KeyboardButton btnColor='yellow' onClick={() => {onClickKeyboardButton('yellow')}} />
-      <KeyboardButton btnColor='green' onClick={() => {onClickKeyboardButton('green')}} />
-      <KeyboardButton btnColor='orange' onClick={() => {onClickKeyboardButton('orange')}} />
-      <KeyboardButton className='Button' onClick={() => {onClickKeyboardButton('backspace')}} label='&lt;' />
-      <KeyboardButton className='Button' onClick={() => {onClickKeyboardButton('enter')}} label='GO!' disabled={true} />
+      <KeyboardButton btnColor='purple' value='purple' onClick={() => {onHandleClick('purple')}} />
+      <KeyboardButton btnColor='red' onClick={() => {onHandleClick('red')}} />
+      <KeyboardButton btnColor='blue'onClick={() => {onHandleClick('blue')}} />
+      <KeyboardButton btnColor='yellow' onClick={() => {onHandleClick('yellow')}} />
+      <KeyboardButton btnColor='green' onClick={() => {onHandleClick('green')}} />
+      <KeyboardButton btnColor='orange' onClick={() => {onHandleClick('orange')}} />
+      <KeyboardButton className='Button' onClick={() => {onHandleClick('backspace')}} label='&lt;' />
+      <KeyboardButton className='Button' onClick={() => {onHandleClick('enter')}} label='GO!' disabled={true} />
     </div>
   );
 };
 
-export default Button;
+export default Keyboard;
