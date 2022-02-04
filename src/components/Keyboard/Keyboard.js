@@ -16,8 +16,8 @@ const Keyboard = ({ onButtonSelected }) => {
       <KeyboardButton btnColor='yellow' onClick={() => {onHandleClick('yellow')}} />
       <KeyboardButton btnColor='green' onClick={() => {onHandleClick('green')}} />
       <KeyboardButton btnColor='orange' onClick={() => {onHandleClick('orange')}} />
-      <KeyboardButton className='Button' onClick={() => {onHandleClick('backspace')}} label='&lt;' />
-      <KeyboardButton className='Button' onClick={() => {onHandleClick('enter')}} label='GO!' disabled={true} />
+      {/* <KeyboardButton className='Button' onClick={() => {onHandleClick('backspace')}} label='&lt;' />
+      <KeyboardButton className='Button' onClick={() => {onHandleClick('enter')}} label='GO!' disabled={!activeEnterButton} /> */}
     </div>
   );
 };

@@ -3,46 +3,79 @@ import './row.css';
 
 import Peg from '../Peg/Peg';
 import Hint from '../Hint/Hint';
-import { act } from '@testing-library/react';
+import RowButtons from './RowButtons/RowButtons';
 
 const PEGS = 4;
 
-const renderPegs = (isCurrentRow, activePeg, currentGuess, currentGame, rowIndex) => {
-  let pegs = [];
-  let pegId;
-  let active;
-  let color;
+const Row = ({ rowIndex, isCurrentRow = false, activePeg, currentGuess, currentGame, gameExactMatches, gameColorMatches, onRowButtonSelected, activeEnterButton }) => {
+  let exactMatchCount = gameExactMatches.get(rowIndex) || 0; 
+  let colorMatchCount = gameColorMatches.get(rowIndex) || 0; 
+  let showHints = exactMatchCount > 0 || colorMatchCount > 0
 
-  for (let index = 0; index < PEGS; index++) {
-    pegId = 'peg-' + index;
-    active = pegId === activePeg && isCurrentRow;
-    if (currentGuess.get(index) && isCurrentRow) {
-      color = currentGuess.get(index);
-    } else if (currentGame.get(rowIndex)) {
-      let previousGuess = currentGame.get(rowIndex)
-      color  = previousGuess.get(index);
-    } else {
-      color = 'white';
+  function onHandleRowButtonSelected(type) {
+    onRowButtonSelected(type);
+  };
+
+  const renderPegs = (isCurrentRow, activePeg, currentGuess, currentGame, rowIndex) => {
+    let pegs = [];
+    let pegId;
+    let active;
+    let color;
+  
+    for (let index = 0; index < PEGS; index++) {
+      pegId = 'peg-' + index;
+      active = pegId === activePeg && isCurrentRow;
+      if (currentGuess.get(index) && isCurrentRow) {
+        color = currentGuess.get(index);
+      } else if (currentGame.get(rowIndex)) {
+        let previousGuess = currentGame.get(rowIndex)
+        color  = previousGuess.get(index);
+      } else {
+        color = 'white';
+      }
+  
+      pegs.push(<Peg key={pegId} pegId={pegId} active={active} clr={color} />)
     }
-    // color = currentGuess.get(index) && isCurrentRow ? currentGuess.get(index) : color = 'white';
-
-    pegs.push(<Peg key={pegId} pegId={pegId} active={active} clr={color} />)
+  
+    return(pegs);
   }
 
-  return(pegs);
-}
+  const renderHints = (gameExactMatches, gameColorMatches, rowIndex) => {
+    let hints = [];
+    let hintId;
+    let exactMatchCount = gameExactMatches.get(rowIndex) || 0; 
+    let colorMatchCount = gameColorMatches.get(rowIndex) || 0; 
+  
+    for (let index = 0; index < colorMatchCount; index++) {
+      hintId = 'cHint-' + index;
+      hints.push(<Hint key={hintId} hintId={hintId} clr={'white'} />);
+    }
+  
+    for (let index = 0; index < exactMatchCount; index++) {
+      hintId = 'eHint-' + index;
+      hints.push(<Hint key={hintId} hintId={hintId} clr={'black'} />);
+    }
+  
+    return(hints);
+  }
 
-const Row = ({ rowIndex, isCurrentRow = false, activePeg, currentGuess, currentGame }) => {
+  const renderButtons = () => {
+    return (<RowButtons onRowButtonSelected={(type) => onHandleRowButtonSelected(type)} activeEnterButton={activeEnterButton}  />);
+  }
+
   return (
-    <div className='Row' style={{ backgroundColor: isCurrentRow ? 'lightgray' : 'white', opacity: currentGame.get(rowIndex) || isCurrentRow ? 1 : 0.5 }}>
+    <div 
+      className='Row' 
+      style={{ 
+        backgroundColor: isCurrentRow ? 'lightgray' : 'white', 
+        opacity: currentGame.get(rowIndex) || isCurrentRow ? 1 : 0.5 
+      }}
+    >
       <div className='Decode'>
         {renderPegs(isCurrentRow, activePeg, currentGuess, currentGame, rowIndex)}
       </div>
       <div className='Hints'>
-        {/* <Hint clr='black' />
-        <Hint clr='white' />
-        <Hint clr='black' />
-        <Hint clr='white' /> */}
+        {showHints ? renderHints(gameExactMatches, gameColorMatches, rowIndex) : isCurrentRow ? renderButtons() : null }
       </div>
     </div>
   );
