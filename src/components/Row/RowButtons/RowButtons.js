@@ -2,7 +2,6 @@ import React from 'react';
 import './row-buttons.css'
 
 import KeyboardButton from '../../Keyboard/KeyboardButton/KeyboardButton'
-import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 const RowButtons = ({ onRowButtonSelected, activeEnterButton }) => {
   function onHandleClick(type) {

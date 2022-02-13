@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import ReactDOM from 'react-dom';
 import './app.css';
 
@@ -50,7 +50,7 @@ function App() {
       if (currentGuess.get(activeRow)) {
         console.log('currentGuess',currentGuess);
         setActiveEnterButton(false);
-        setCurrentGuess(new Map);
+        setCurrentGuess(new Map());
         setActivePeg(0);
       }
     }
@@ -93,7 +93,7 @@ function App() {
       } else {
         // no correct code so continue to the next row (it there is one)
         setCurrentGame(currentGame.set(activeRow, currentGuess));
-        setCurrentGuess(new Map);
+        setCurrentGuess(new Map());
         setActiveRow(activeRow + 1);
         setActivePeg(0);
       }
